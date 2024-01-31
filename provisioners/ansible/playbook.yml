@@ -1,0 +1,12 @@
+- name: Configure devbox
+  hosts: all
+  gather_facts: no
+  vars:
+    pyenv_executable: $HOME/.pyenv/bin/pyenv
+    poetry_executable: $HOME/.local/bin/poetry
+
+  tasks:
+    - name: Run system tasks
+      ansible.builtin.include_tasks: setup_system.yml
+    - name: Run python tasks
+      ansible.builtin.include_tasks: setup_python.yml
